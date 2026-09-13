@@ -9,6 +9,8 @@ Repository: <https://github.com/zhenyusu261/electricity-demand-forecasting>
 
 Current release: `v1.0.0`
 
+Repository description: AI and forecasting.
+
 ## Scope
 
 This repository contains the 2025 evaluation code for the primary Changzhou
