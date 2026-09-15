@@ -4,6 +4,11 @@ This package supports inspection and reproduction of the forecasting and
 statistical analyses reported in the manuscript, including the 2024 and 2025
 Changzhou evaluations and the Guangzhou cross-city validation.
 
+The `code_2024/` and `code_2025/` directories each include `x13.py`. All
+X13-based scripts import this file as the Python interface to X13. Running the
+models also requires the external `x13as` executable; `x13.py` alone is not
+sufficient.
+
 ## Contents
 
 - `data/changzhou.csv`: Changzhou monthly electricity demand used in the

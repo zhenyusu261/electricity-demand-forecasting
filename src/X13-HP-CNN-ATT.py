@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import keras_tuner as kt
 from statsmodels.tsa.filters import hp_filter
-from statsmodels.tsa.x13 import x13_arima_analysis
+from x13 import x13_arima_analysis
 from sklearn.preprocessing import StandardScaler
 from tensorflow.keras import backend as K
 from tensorflow.keras import layers, Model

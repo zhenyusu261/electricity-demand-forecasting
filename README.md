@@ -8,7 +8,7 @@ Monthly Electricity Demand Forecasting**
 
 Repository: <https://github.com/zhenyusu261/electricity-demand-forecasting>
 
-Current release: `v1.0.1`
+Current release: `v1.0.2`
 
 Repository description: AI and forecasting.
 
@@ -69,10 +69,14 @@ electricity-demand-forecasting/
 │   ├── check_environment.py
 │   └── run_all.py
 ├── src/
+│   ├── x13.py
 │   ├── repo_config.py
 │   ├── _hp_cnn_common.py
 │   ├── _hp_rnn_common.py
 │   └── model scripts
+├── third_party/
+│   └── statsmodels/
+│       └── LICENSE.txt
 ├── .gitignore
 ├── CITATION.cff
 ├── LICENSE
@@ -84,6 +88,10 @@ electricity-demand-forecasting/
 
 - Python 3.10 or 3.11. Python 3.11 is recommended.
 - X-13ARIMA-SEATS, including the `x13as` executable.
+- The bundled `src/x13.py`, which provides the Python X13 interface used by
+  every X13-based model script.
+- The runtime packages imported by `src/x13.py`, including the version of
+  `statsmodels` listed in `requirements.txt`.
 - A C compiler or compatible binary is not required when the official X13
   executable is used.
 
@@ -101,6 +109,17 @@ TensorFlow may not support every newly released Python version. Use Python
 
 ## X13 Configuration
 
+The X13-based programs require both components:
+
+- `src/x13.py`: the Python interface used by the model scripts.
+- `x13as`: the external X-13ARIMA-SEATS executable that performs the actual
+  seasonal adjustment.
+
+Keep `x13.py` in the same directory as the scripts that import it. The
+`reproducibility_package/code_2024/` and
+`reproducibility_package/code_2025/` directories each contain their own copy
+so that they can run independently.
+
 The repository does not redistribute the X-13ARIMA-SEATS executable. Set its
 path before running any X13-based model:
 
@@ -110,6 +129,10 @@ $env:X13AS_PATH = "C:\path\to\x13as.exe"
 
 The code supports `log=None`, which lets X13 choose whether a logarithmic
 transformation is appropriate for each estimation window.
+
+`x13.py` is a vendored copy of the X13 interface from statsmodels 0.14.4. Its
+upstream source, license, and checksum are recorded in
+`THIRD_PARTY_NOTICES.md` and `third_party/statsmodels/LICENSE.txt`.
 
 ## Data
 

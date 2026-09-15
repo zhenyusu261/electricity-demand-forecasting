@@ -23,9 +23,18 @@ The repository implements the 2025 Changzhou evaluation:
 
 ## X13 Log Transformation
 
-All X13-based models call `x13_arima_analysis(..., log=None)`. X13 therefore
-selects the logarithmic transformation automatically for each estimation
-window.
+All X13-based models import `x13_arima_analysis` from the bundled `x13.py`
+and call `x13_arima_analysis(..., log=None)`. X13 therefore selects the
+logarithmic transformation automatically for each estimation window.
+
+The program cannot run with only one of the following:
+
+- `x13.py`, which defines the Python interface and processes the X13 output;
+- the external `x13as` executable, which performs the estimation.
+
+Keep `x13.py` beside the model scripts. The same file is included in
+`src/`, `reproducibility_package/code_2024/`, and
+`reproducibility_package/code_2025/`.
 
 The returned adjusted series is on the original scale. When X13 selects a log
 transformation, the estimated holiday effect is therefore applied as:

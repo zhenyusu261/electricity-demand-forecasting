@@ -8,6 +8,6 @@ authors:
     given-names: "Zhehan"
 type: software
 year: 2026
-version: "1.0.1"
+version: "1.0.2"
 repository-code: "https://github.com/zhenyusu261/electricity-demand-forecasting"
 abstract: "Code and data for the 2024-2025 Changzhou evaluation and Guangzhou cross-city validation comparing X13-HP-CNN-ATT with preprocessing, decomposition, branch-ablation, recurrent, and statistical comparison baselines."
