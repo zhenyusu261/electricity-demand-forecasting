@@ -1,27 +1,33 @@
 # Electricity Demand Forecasting
 
-Reproducible code for the 2025 Changzhou experiment reported in:
+Reproducible code and data for the 2024-2025 Changzhou experiments and the
+2024-2025 Guangzhou cross-city evaluation reported in:
 
 **An Integrated regARIMA-HP Filter-CNN Framework with Attention Mechanism for
 Monthly Electricity Demand Forecasting**
 
 Repository: <https://github.com/zhenyusu261/electricity-demand-forecasting>
 
-Current release: `v1.0.0`
+Current release: `v1.0.1`
 
 Repository description: AI and forecasting.
 
 ## Scope
 
-This repository contains the 2025 evaluation code for the primary Changzhou
-dataset. It includes the proposed model, decomposition and preprocessing
-ablations, branch ablations, and recurrent baselines.
+This repository contains the evaluation code and result files for the primary
+Changzhou dataset in 2024 and 2025, together with the Guangzhou cross-city
+validation under the same causal rolling one-step protocol. It includes the
+proposed model, decomposition and preprocessing ablations, branch ablations,
+and recurrent baselines.
 
 The protocol uses 2012-2024 observations for model construction and evaluates
-12 causally updated one-step forecasts for 2025. X13 is allowed to select a
-logarithmic transformation automatically. If the transformation is selected,
-holiday effects are applied multiplicatively after the X13-adjusted series is
-returned to its original scale.
+12 causally updated one-step forecasts for 2025 in the primary workflow. The
+`reproducibility_package/` directory additionally contains the exact 2024 code
+and result files, Guangzhou data, cross-city results, statistical analysis,
+and supplementary tables. X13 is allowed to select a logarithmic
+transformation automatically. If the transformation is selected, holiday
+effects are applied multiplicatively after the X13-adjusted series is returned
+to its original scale.
 
 ## Models
 
@@ -46,11 +52,19 @@ returned to its original scale.
 electricity-demand-forecasting/
 ├── data/
 │   ├── README.md
-│   └── changzhou.csv
+│   ├── changzhou.csv
+│   └── guangzhou.csv
 ├── docs/
 │   └── REPRODUCIBILITY.md
 ├── reference_results/
 │   └── 2025/
+├── reproducibility_package/
+│   ├── code_2024/
+│   ├── code_2025/
+│   ├── cross_city_results/
+│   ├── data/
+│   ├── statistical_analysis/
+│   └── supplementary_tables/
 ├── scripts/
 │   ├── check_environment.py
 │   └── run_all.py
@@ -99,7 +113,7 @@ transformation is appropriate for each estimation window.
 
 ## Data
 
-The default data path is:
+The default primary data path is:
 
 ```text
 data/changzhou.csv
@@ -121,6 +135,16 @@ An alternative data path can be supplied as:
 ```powershell
 $env:CHANGZHOU_DATA = "C:\path\to\changzhou.csv"
 ```
+
+The Guangzhou cross-city data are provided in:
+
+```text
+data/guangzhou.csv
+```
+
+The complete source data and result package used for the 2024 evaluation,
+2025 evaluation, and Guangzhou cross-city comparison is also available under
+`reproducibility_package/`.
 
 ## Environment Check
 
@@ -166,8 +190,10 @@ outputs/
 Each results file contains 12 monthly forecasts followed by RMSE, MAPE, MAE,
 and R2 rows.
 
-The `reference_results/2025/` directory contains the result files used for the
-manuscript. Generated files in `outputs/` are excluded from Git by default.
+The `reference_results/2025/` directory contains the primary 2025 result
+files. The `reproducibility_package/cross_city_results/` directory contains
+the Guangzhou result files. Generated files in `outputs/` are excluded from
+Git by default.
 
 ## Reproducibility
 
@@ -190,6 +216,11 @@ Changzhou electricity demand data were obtained from the Changzhou Municipal
 Bureau of Statistics:
 
 <https://tjjyw.changzhou.gov.cn/cztjj/mbWeb_CZ.action>
+
+Guangzhou electricity demand data were obtained from the Guangzhou Municipal
+Statistics Bureau:
+
+<https://tjj.gz.gov.cn/datav/admin/home/www_report>
 
 Users are responsible for checking the source terms before redistributing the
 data.

@@ -1,7 +1,10 @@
 # Data
 
-`changzhou.csv` contains the monthly Changzhou electricity demand series used
-in the 2025 primary evaluation.
+This directory contains the monthly electricity demand series used by the
+study:
+
+- `changzhou.csv`: primary Changzhou evaluation data.
+- `guangzhou.csv`: Guangzhou cross-city validation data.
 
 ## Columns
 
@@ -20,6 +23,10 @@ Changzhou Municipal Bureau of Statistics:
 
 <https://tjjyw.changzhou.gov.cn/cztjj/mbWeb_CZ.action>
 
-The repository distributes the processed data file for reproducibility.
+Guangzhou Municipal Statistics Bureau:
+
+<https://tjj.gz.gov.cn/datav/admin/home/www_report>
+
+The repository distributes the processed data files for reproducibility.
 Users should verify the source provider's redistribution terms before reusing
 or republishing the data.

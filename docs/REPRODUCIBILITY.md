@@ -1,5 +1,13 @@
 # Reproducibility Notes
 
+## Full evaluation package
+
+The `reproducibility_package/` directory contains the exact 2024 and 2025
+evaluation code, monthly result files, Guangzhou cross-city outputs,
+statistical analysis scripts, and supplementary tables. It preserves the
+original path variables used during the study. Before rerunning a model, set
+`DATA_PATH` and `X13_PATH` for the local data and X-13ARIMA-SEATS executable.
+
 ## Evaluation Protocol
 
 The repository implements the 2025 Changzhou evaluation:
